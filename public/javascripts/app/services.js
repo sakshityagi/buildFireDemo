@@ -1,9 +1,8 @@
 'use strict';
 
 angular.module('BuildFireDemoApp')
-  .factory('RegisterUser', ['$resource', function ($resource) {
-    return $resource('/user/register', {
-    }, {
-      'signUp': { method: 'POST' }
-    });
-  }]);
+    .factory('UserApi', ['$resource', function ($resource) {
+        return $resource('/user', {}, {
+            'signUp': {method: 'POST'}
+        });
+    }]);

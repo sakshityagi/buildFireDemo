@@ -4,6 +4,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var AppConfig = require("./config/AppConfig.json");
 
 var routes = require('./routes/user');
 
@@ -14,7 +15,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 //add connection to your mongo database
-mongoose.connect("mongodb://localhost/buildFireDemo-dev");
+mongoose.connect(AppConfig.mongo.uri);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
